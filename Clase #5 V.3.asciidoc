@@ -220,11 +220,11 @@ D. **Verificar**: Los usuarios en la red tienen que verificar que Marc si tenía
 4. con un click en un botón, se verifica si Marc tiene suficiente fondos en su monedero 
 5. El monedero de Marc **firma** la transacción **** con su clave privada, 
     - su bitcoin se vuelve disponible para Roby
-6. La transacción se transmite a través de la red a los **nodos** para ser ver si es aprobada
-    - Después de ser verificada, permanece en un área de espera
-7. Los **nodos mineros** seleccionan miles de transacciones y rechazan las inválidas 
-    - Las agregan sus nuevos “bloques candidatos”, los cuales no han sido aceptados
-    - Comprimen toda la información y cada uno crea un identificador de bloque.
+6. La transacción se transmite a través de la red a los **nodos**, quienes verificarán si es válida,
+    - Después de ser verificada, permanece en una sala de espera hasta que un nodo minero la seleccione
+7. Los **nodos mineros** seleccionan las transacciones con incentivos monetarios más atractivos 
+    - Las agregan sus nuevos “bloques candidatos”, cada uno con su registro de transacciones por confirmar,
+    - Comprimen toda la información creando un identificador de bloque.
 8. Comienza una competencia entre **nodos (**similar a una rifa entre identificadores de bloque)
     - para ver a quién es el próximo en agregar su bloque a la cadena de bloques
 9. El bloque ganador contiene la transacción de Marc-Roby y lo propaga a otros nodos
@@ -238,7 +238,7 @@ D. **Verificar**: Los usuarios en la red tienen que verificar que Marc si tenía
 
 ## UTXO-“Monedas no Gastadas” o “Unspent Transaction Output”
 
-Las transacciones son simplemente **entradas** y **salidas** de bitcoin de un monedero a otro
+Las transacciones son simplemente **entradas** y **salidas** de bitcoin de una dirección a otra
 
 - Todo bitcoin que todavía no se haya gastado se considera “**UTXO**”, **monedas no consumidas**
 - El **estado actual** de la cadena de bloques es la base de datos **UTXO**.
@@ -247,8 +247,8 @@ Las transacciones son simplemente **entradas** y **salidas** de bitcoin de un mo
     - Una salida va a la persona a la que se realiza el pago
 - Cuando un usuario desbloquea su UTXO con su clave privada para enviarle a otro,
     - su saldo puede estar en peligro, ya que su caja de seguridad está abierta.
-    - Por este motivo, es recomendable siempre mandar cualquier saldo a un monedero nuevo
-- Si el monedero original tiene un saldo:
+    - Por este motivo, es recomendable siempre mandar cualquier saldo a una dirección nueva
+- Si la dirección original tiene un saldo:
     - la otra salida se dirige a una dirección nueva creada para recibir el cambio
         - convirtiendo esta cantidad en una entrada nueva UTXO
 - Para los nodos en la red, es fácil llegar a un consenso ya que:
@@ -269,14 +269,14 @@ Las transacciones son simplemente **entradas** y **salidas** de bitcoin de un mo
 Visualicemos cómo se **confirma** una transacción:
 
 - Las cajas amarillas representan UTXO y
-- las cajas grises representan monederos en los que ya no hay bitcoin (completamente vacías).
+- las cajas grises representan direcciones en los que ya no hay bitcoin (completamente vacías).
 - Diagrama #1:
     - El nodo confirma que si había suficiente bitcoin apuntando a la dirección original  (0.5 BTC en el monedero de Marc) para ejecutar la transacción
     - Cuando se confirma la transacción, se ha repartido cierta cantidad de bitcoin a dos direcciones diferentes.
     - Algunas cajas ahora tienen más bitcoin (la de Roby), y la original, menos….o nada.
  
 
-Después de haber confirmado la transferencia, la blockchain solo se encargará de monitorear los monederos que recibieron dinero, el de 1.5BTC, y el de 0.5BTC. 
+Después de haber confirmado la transferencia, la blockchain solo se encargará de monitorear las direcciones que recibieron dinero, el de 1.5BTC, y el de 0.5BTC. 
 
 - Este es ahora el bitcoin no gastado o el UTXO.
 
